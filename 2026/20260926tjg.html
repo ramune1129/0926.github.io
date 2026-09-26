@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>風の背景デザイン</title>
+
+<style>
+  body {
+    margin: 0;
+    background: linear-gradient(180deg, #b0d4f1 0%, #6fa8dc 100%);
+    overflow-x: hidden;
+    font-family: 'Helvetica Neue', sans-serif;
+    color: white;
+    scroll-behavior: smooth;
+  }
+
+  /* 風の流れレイヤー */
+  .wind {
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3), transparent 70%),
+                radial-gradient(circle at 70% 70%, rgba(255,255,255,0.2), transparent 70%);
+    filter: blur(60px);
+    animation: flow 20s linear infinite;
+    z-index: 0;
+  }
+
+  @keyframes flow {
+    from { transform: translateX(-20%) translateY(-10%); }
+    to { transform: translateX(20%) translateY(10%); }
+  }
+
+  /* 1ページ目 */
+  .text {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding-top: 40vh;
+    padding-bottom: 40vh;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    letter-spacing: 0.2em;
+    font-weight: 300;
+  }
+
+  p {
+    font-size: 1rem;
+    opacity: 0.8;
+  }
+
+  /* ボタン */
+  .btn, .back {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 12px 28px;
+    background: rgba(255,255,255,0.25);
+    border-radius: 12px;
+    color: #fff;
+    text-decoration: none;
+    backdrop-filter: blur(8px);
+    transition: 0.3s;
+  }
+
+  .btn:hover, .back:hover {
+    background: rgba(255,255,255,0.4);
+    transform: scale(1.05);
+  }
+
+  /* 街紹介ページ */
+  .content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 80px auto;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    padding: 40px;
+    border-radius: 20px;
+  }
+
+  h2 {
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .gallery img {
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  }
+
+  .gallery figcaption {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    opacity: 0.85;
+  }
+</style>
+</head>
+
+<body id="top">
+  <div class="wind"></div>
+
+  <!-- 1ページ目 -->
+  <div class="text">
+    <h1>私の生まれたまち</h1>
+    <p>函館市</p>
+
+    <!-- 街紹介ページへ移動 -->
+    <a href="#page2" class="btn">街の紹介を見る</a>
+  </div>
+
+  <!-- 2ページ目：街紹介 -->
+  <div id="page2" class="content">
+    <h2>函館市の紹介</h2>
+    <p>
+      函館市は北海道の南に位置し、海と山に囲まれた美しい街です。
+      夜景、歴史的な建物、港町の雰囲気が調和し、観光地としても人気があります。
+      風が海から街へ流れ込むことで、季節ごとに異なる表情を見せてくれます。
+    </p>
+<div class="gallery">
+  <figure>
+    <img src="https://prd-static.gltjp.com/glt/data/article/21000/20398/20230906_141859_fcb6fb8a_w1920.jpg" alt="五稜郭公園の夜景">
+    <figcaption>五稜郭公園の夜景（青の風が通る街）</figcaption>
+  </figure>
+</div>
+
+<div class="gallery">
+  <figure>
+    <img src="https://www.lotascard.jp/managed/wp-content/uploads/2023/06/b126b51a41e99572b2fdf0011d2d7c66.jpg" alt="五稜郭タワー">
+    <figcaption>五稜郭タワーと星形の城跡（青空の下）</figcaption>
+  </figure>
+</div>
+
+
+  <div class="gallery">
+  <figure>
+    <img src="https://kojimachiblog.com/wp-content/uploads/2026/04/%E4%BA%94%E7%A8%9C%E9%83%AD%E5%85%AC%E5%9C%92%E3%81%AE%E8%8A%B1%E8%A6%8B.jpg" alt="五稜郭公園の桜並木">
+    <figcaption>五稜郭公園の桜並木（春の風景）</figcaption>
+  </figure>
+</div>
+
+</div>
+
+
+    <!-- 最初に戻る -->
+    <a href="#top" class="back">最初に戻る</a>
+  </div>
+
+</body>
+</html>
